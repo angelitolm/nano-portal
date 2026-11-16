@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nano | Tu teléfono viejo, ahora con ojos</title>
+<meta name="description" content="Nano convierte un Android viejo en una mascota de escritorio que reacciona a tu cara, a tus toques y a tu PC, y que se alterna con un HUD de rendimiento: CPU, RAM, GPU, temperaturas, red y procesos.">
+<link rel="canonical" href="https://nano.angellm.dev/">
+<meta name="theme-color" content="#070B14">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Nano">
+<meta property="og:url" content="https://nano.angellm.dev/">
+<meta property="og:title" content="Nano: tu teléfono viejo, ahora con ojos">
+<meta property="og:description" content="Una mascota de escritorio que reacciona a tu cara y a tu PC, y un HUD de rendimiento en el mismo teléfono. Android + Windows, sin nube.">
+<meta property="og:image" content="https://nano.angellm.dev/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Los dos ojos cian de Nano sobre fondo azul oscuro: tu teléfono viejo, ahora con ojos">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nano: tu teléfono viejo, ahora con ojos">
+<meta name="twitter:description" content="Una mascota de escritorio que reacciona a tu cara y a tu PC, y un HUD de rendimiento en el mismo teléfono. Android + Windows, sin nube.">
+<meta name="twitter:image" content="https://nano.angellm.dev/assets/og.png">
+<link rel="stylesheet" href="/styles.css?v=1">
+<script src="/main.js?v=1" defer></script>
+</head>
+<body>
+<!-- Iconos: Iconsax (variante Bulk, la misma que usa la app), licencia MIT, https://iconsax-react.pages.dev/
+     Caras: las mismas formas que dibuja la app (ojos cian #5CE1FF con borde #1E5BFF). -->
+<svg class="sprite" aria-hidden="true">
+<defs>
+  <linearGradient id="g-ok" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#34D399"/><stop offset=".5" stop-color="#3B82F6"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient>
+  <linearGradient id="g-warn" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F59E0B"/><stop offset="1" stop-color="#F97316"/></linearGradient>
+  <linearGradient id="g-brand" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3B82F6"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient>
+  <clipPath id="cl-al"><polygon points="84,58 178,106 178,160 84,160"/></clipPath>
+  <clipPath id="cl-ar"><polygon points="222,106 316,58 316,160 222,160"/></clipPath>
+  <clipPath id="cl-fl"><polygon points="80,70 182,130 182,160 80,160"/></clipPath>
+  <clipPath id="cl-fr"><polygon points="218,130 320,70 320,160 218,160"/></clipPath>
+  <clipPath id="cl-sl"><polygon points="84,90 178,68 178,160 84,160"/></clipPath>
+  <clipPath id="cl-sr"><polygon points="222,68 316,90 316,160 222,160"/></clipPath>
+  <g id="eo"><circle class="rim" fill="#1E5BFF" cy="5" r="40"/><circle class="iris" fill="#5CE1FF" r="37"/></g>
+  <g id="eh"><path class="rim" fill="#1E5BFF" d="M-40 22A40 40 0 0 1 40 22Q0 0-40 22Z"/><path class="iris" fill="#5CE1FF" d="M-38 16A38 38 0 0 1 38 16Q0-6-38 16Z"/></g>
+  <path id="star4" d="M0-8 2.2-2.2 8 0 2.2 2.2 0 8-2.2 2.2-8 0-2.2-2.2Z"/>
+  <path id="anger" d="M-14-4Q-4-4-4-14M4-14Q4-4 14-4M14 4Q4 4 4 14M-4 14Q-4 4-14 4"/>
+  <g id="gun">
+    <path class="gun" fill="#2DD4BF" fill-opacity=".16" stroke="#2DD4BF" stroke-width="3.5" stroke-linejoin="round" d="M-36-9h40a6 6 0 0 1 6 6v10H-36a5 5 0 0 1-5-5v-6a5 5 0 0 1 5-5Z"/>
+    <path class="gun" fill="#2DD4BF" fill-opacity=".16" stroke="#2DD4BF" stroke-width="3.5" stroke-linejoin="round" d="M-6 7h14l6 26a4 4 0 0 1-4 5H4a4 4 0 0 1-4-3Z"/>
+    <path class="gun-line" fill="none" stroke="#2DD4BF" stroke-width="3" stroke-linecap="round" d="M-14 7q2 10 12 9"/>
+  </g>
+</defs>
+<symbol id="f-neutral" viewBox="0 0 400 200"><use href="#eo" x="130" y="98"/><use href="#eo" x="270" y="98"/></symbol>
+<symbol id="f-feliz" viewBox="0 0 400 200"><use href="#eh" x="130" y="104"/><use href="#eh" x="270" y="104"/></symbol>
+<symbol id="f-enojado" viewBox="0 0 400 200"><g clip-path="url(#cl-al)"><use href="#eo" x="130" y="104"/></g><g clip-path="url(#cl-ar)"><use href="#eo" x="270" y="104"/></g><use class="mark-anger" fill="none" stroke="#FB7185" stroke-width="4" stroke-linecap="round" href="#anger" x="342" y="46"/></symbol>
+<symbol id="f-guino" viewBox="0 0 400 200"><use href="#eo" x="130" y="98"/><rect class="rim" fill="#1E5BFF" x="232" y="104" width="76" height="12" rx="6"/><rect class="iris" fill="#5CE1FF" x="232" y="99" width="76" height="11" rx="5.5"/><use class="iris" fill="#5CE1FF" href="#star4" x="336" y="62"/><use class="iris" fill="#5CE1FF" href="#star4" x="354" y="82"/></symbol>
+<symbol id="f-dormido" viewBox="0 0 400 200"><rect class="rim" fill="#1E5BFF" x="92" y="114" width="76" height="10" rx="5"/><rect class="iris" fill="#5CE1FF" x="92" y="110" width="76" height="9" rx="4.5"/><rect class="rim" fill="#1E5BFF" x="232" y="114" width="76" height="10" rx="5"/><rect class="iris" fill="#5CE1FF" x="232" y="110" width="76" height="9" rx="4.5"/><g class="zz" fill="#5CE1FF" font-weight="800" font-family="system-ui, sans-serif"><text x="318" y="74" font-size="18">z</text><text x="334" y="56" font-size="24">z</text><text x="352" y="34" font-size="30">Z</text></g></symbol>
+<symbol id="f-furioso" viewBox="0 0 400 200"><g clip-path="url(#cl-fl)"><use href="#eo" transform="translate(130 112) scale(1.12 .74)"/></g><g clip-path="url(#cl-fr)"><use href="#eo" transform="translate(270 112) scale(1.12 .74)"/></g><use class="mark-anger" fill="none" stroke="#FB7185" stroke-width="4" stroke-linecap="round" href="#anger" x="342" y="42"/></symbol>
+<symbol id="f-estresado" viewBox="0 0 400 200"><g clip-path="url(#cl-sl)"><use href="#eo" x="130" y="104"/></g><g clip-path="url(#cl-sr)"><use href="#eo" x="270" y="104"/></g><path class="drop" fill="#BAE6FD" d="M340 52c7 10 10 15 10 20a10 10 0 0 1-20 0c0-5 3-10 10-20Z"/></symbol>
+<symbol id="f-guns" viewBox="0 0 400 200">
+  <g class="gun-l"><g transform="translate(54 104) rotate(-16) scale(.8)"><use href="#gun"/><g class="bang"><use class="flash" fill="#FBBF24" stroke="#F97316" stroke-width="1.5" href="#star4" x="-48" y="-3"/><path class="flash-lines" fill="none" stroke="#FBBF24" stroke-width="3" stroke-linecap="round" d="M-56-18l-8-8M-60-3h-12M-56 12l-8 8"/></g></g></g>
+  <g class="gun-r"><g transform="matrix(-1 0 0 1 400 0)"><g transform="translate(54 104) rotate(-16) scale(.8)"><use href="#gun"/></g></g></g>
+</symbol>
+<symbol id="i-cpu" viewBox="0 0 24 24"><path d="M15 4H9C6.24 4 4 6.24 4 9v6c0 2.76 2.24 5 5 5h6c2.76 0 5-2.24 5-5V9c0-2.76-2.24-5-5-5Zm2.26 10.26c0 1.66-1.34 3-3 3H9.74c-1.66 0-3-1.34-3-3V9.74c0-1.66 1.34-3 3-3h4.51c1.66 0 3 1.34 3 3v4.52h.01Z" opacity="0.4"/><path d="M9.06 2.75V4H9c-.5 0-.98.07-1.44.21V2.75a.749.749 0 1 1 1.5 0ZM12.75 2.75V4h-1.5V2.75c0-.41.34-.75.75-.75s.75.34.75.75ZM16.45 2.75v1.46C15.99 4.07 15.5 4 15 4h-.05V2.75c0-.41.34-.75.75-.75s.75.34.75.75ZM22 8.3c0 .42-.33.75-.75.75H20V9c0-.5-.07-.99-.21-1.45h1.46c.42 0 .75.34.75.75ZM22 12c0 .41-.33.75-.75.75H20v-1.5h1.25c.42 0 .75.33.75.75ZM22 15.7c0 .41-.33.75-.75.75h-1.46c.14-.46.21-.95.21-1.45v-.05h1.25c.42 0 .75.33.75.75ZM16.45 19.79v1.46c0 .41-.34.75-.75.75s-.75-.34-.75-.75V20H15c.5 0 .99-.07 1.45-.21ZM12.76 20v1.25a.749.749 0 1 1-1.5 0V20h1.5ZM9.06 20v1.25a.749.749 0 1 1-1.5 0v-1.46c.46.14.94.21 1.44.21h.06ZM4.21 7.55C4.07 8.01 4 8.5 4 9v.05H2.75a.749.749 0 1 1 0-1.5h1.46ZM4 11.25v1.5H2.75a.749.749 0 1 1 0-1.5H4ZM4.21 16.45H2.75a.749.749 0 1 1 0-1.5H4V15c0 .5.07.99.21 1.45ZM17.26 9.738v4.51c0 1.66-1.34 3-3 3H9.74c-1.66 0-3-1.34-3-3v-4.51c0-1.66 1.34-3 3-3h4.51a3.01 3.01 0 0 1 3.01 3Z"/></symbol><symbol id="i-ram" viewBox="0 0 24 24"><path d="M18.5 10v2.17c0 .53.21 1.04.59 1.42l.82.82c.38.38.59.89.59 1.42V17c0 2.85-1.38 4.8-4.49 4.98l-.02-2.99c-.01-1.1-.9-1.99-2-1.99H9.98a2 2 0 0 0-2 2l.01 2.98C4.83 21.8 3.5 19.85 3.5 17V7c0-3 1.47-5 5-5h7c3.47 0 5 2 5 5v1c0 .55-.45 1-1 1s-1 .45-1 1Z" opacity="0.4"/><path d="M16.01 21.98c-.16.01-.33.02-.51.02h-7c-.18 0-.35 0-.51-.02L7.98 19a2 2 0 0 1 2-2h4.01c1.1 0 1.99.89 2 1.99l.02 2.99ZM13.97 8.531h-6c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h6a.749.749 0 1 1 0 1.5Z"/></symbol><symbol id="i-monitor" viewBox="0 0 24 24"><path d="M21.97 6.41v6.5H2v-6.5C2 3.98 3.98 2 6.41 2h11.15c2.43 0 4.41 1.98 4.41 4.41Z" opacity="0.4"/><path d="M2 12.922v.2a4.41 4.41 0 0 0 4.41 4.41h3.84c.55 0 1 .45 1 1v.97c0 .55-.45 1-1 1H7.83a.749.749 0 1 0 0 1.5h8.35c.41 0 .75-.34.75-.75s-.34-.75-.75-.75h-2.42c-.55 0-1-.45-1-1v-.97c0-.55.45-1 1-1h3.81a4.41 4.41 0 0 0 4.41-4.41v-.2H2Z"/></symbol><symbol id="i-wifi" viewBox="0 0 24 24"><path d="M19.09 12.588c-.16 0-.32-.05-.46-.16-4.03-3.11-9.24-3.11-13.27 0-.33.25-.8.19-1.05-.13-.25-.33-.19-.8.13-1.05 4.59-3.55 10.52-3.55 15.1 0 .33.25.39.72.13 1.05-.13.19-.35.29-.58.29Z" opacity="0.4"/><path d="M22 9.108c-.16 0-.32-.05-.46-.16-5.8-4.48-13.29-4.48-19.08 0-.33.25-.8.19-1.05-.13-.25-.33-.19-.8.13-1.05 6.35-4.91 14.56-4.91 20.92 0 .33.25.39.72.13 1.05-.14.19-.37.29-.59.29ZM17.21 16.241c-.16 0-.32-.05-.46-.16-2.88-2.23-6.61-2.23-9.5 0-.33.25-.8.19-1.05-.13-.25-.33-.19-.8.13-1.05 3.44-2.66 7.89-2.66 11.33 0 .33.25.39.72.13 1.05a.72.72 0 0 1-.58.29Z"/><path d="M14.6 19.9c-.16 0-.32-.05-.46-.16-1.3-1.01-2.99-1.01-4.29 0-.33.25-.8.19-1.05-.13-.25-.33-.19-.8.13-1.05 1.86-1.44 4.26-1.44 6.12 0 .33.25.39.72.13 1.05a.72.72 0 0 1-.58.29Z" opacity="0.4"/></symbol><symbol id="i-bluetooth" viewBox="0 0 24 24"><path d="M16.19 2H7.82C4.18 2 2.01 4.17 2.01 7.81v8.37c0 3.64 2.17 5.81 5.81 5.81h8.37c3.64 0 5.81-2.17 5.81-5.81V7.81C22 4.17 19.83 2 16.19 2Z" opacity="0.4"/><path d="M12.71 19.03c-.23 0-.41-.06-.51-.11-.23-.11-.77-.47-.77-1.45v-3.42l-2.92 2.68c-.3.28-.78.26-1.06-.05a.746.746 0 0 1 .05-1.06l3.93-3.6v-.08L7.5 8.38a.746.746 0 0 1-.05-1.06c.28-.3.76-.33 1.06-.05l2.92 2.68V6.53c0-.98.54-1.34.77-1.45.23-.11.85-.29 1.6.34l2.42 2.02c.33.27.52.67.53 1.08.01.41-.16.81-.48 1.1l-2.61 2.39 2.61 2.39c.31.29.49.69.48 1.1-.01.41-.2.8-.53 1.08L13.8 18.6c-.42.34-.8.43-1.09.43Zm.22-5.73v4.06l2.33-1.95-2.33-2.11Zm0-6.66v4l2.33-2.14-2.33-1.86Z"/></symbol><symbol id="i-flash" viewBox="0 0 24 24"><path d="M12 3.672v16.66l-.8.91c-1.11 1.26-2.02.92-2.02-.76v-7.2H6.09c-1.4 0-1.79-.86-.86-1.91l6.77-7.7Z"/><path d="M18.77 12.63 12 20.33V3.67l.8-.91c1.11-1.26 2.02-.92 2.02.76v7.2h3.09c1.4 0 1.79.86.86 1.91Z" opacity="0.4"/></symbol><symbol id="i-camera" viewBox="0 0 24 24"><path d="M6.76 22h10.48c2.76 0 3.86-1.69 3.99-3.75l.52-8.26A3.753 3.753 0 0 0 18 6c-.61 0-1.17-.35-1.45-.89l-.72-1.45C15.37 2.75 14.17 2 13.15 2h-2.29c-1.03 0-2.23.75-2.69 1.66l-.72 1.45C7.17 5.65 6.61 6 6 6 3.83 6 2.11 7.83 2.25 9.99l.52 8.26C2.89 20.31 4 22 6.76 22Z" opacity="0.4"/><path d="M13.5 8.75h-3c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h3c.41 0 .75.34.75.75s-.34.75-.75.75ZM12.001 18.131a3.38 3.38 0 1 0 0-6.76 3.38 3.38 0 0 0 0 6.76Z"/></symbol><symbol id="i-emoji-happy" viewBox="0 0 24 24"><path d="M16.19 2H7.81C4.17 2 2 4.17 2 7.81v8.37C2 19.83 4.17 22 7.81 22h8.37c3.64 0 5.81-2.17 5.81-5.81V7.81C22 4.17 19.83 2 16.19 2Z" opacity="0.4"/><path d="M15.5 10.131a1.88 1.88 0 1 0 0-3.76 1.88 1.88 0 0 0 0 3.76ZM8.5 10.131a1.88 1.88 0 1 0 0-3.76 1.88 1.88 0 0 0 0 3.76ZM15.6 12.922H8.4c-.7 0-1.27.57-1.27 1.28 0 2.69 2.19 4.88 4.88 4.88s4.88-2.19 4.88-4.88c-.01-.7-.59-1.28-1.29-1.28Z"/></symbol><symbol id="i-eye-slash" viewBox="0 0 24 24"><path d="M21.252 9.15a14.57 14.57 0 0 0-1.63-2.11l-3.77 3.77c.12.37.19.77.19 1.19 0 2.24-1.81 4.04-4.04 4.04-.42 0-.82-.07-1.19-.19l-3.46 3.46c1.46.82 3.04 1.25 4.65 1.25 1.78 0 3.51-.52 5.09-1.49 1.58-.98 3-2.41 4.16-4.23 1-1.56 1-4.12 0-5.69Z" opacity="0.4"/><path d="m14.02 9.98-4.04 4.04c-.51-.52-.84-1.24-.84-2.02 0-1.57 1.28-2.86 2.86-2.86.78 0 1.5.33 2.02.84Z"/><path d="m18.25 5.75-3.39 3.39A3.986 3.986 0 0 0 12 7.96c-2.24 0-4.04 1.81-4.04 4.04 0 1.12.45 2.13 1.18 2.86l-3.38 3.39h-.01c-1.11-.9-2.13-2.05-3-3.41-1-1.57-1-4.12 0-5.69C3.91 7.33 5.33 5.9 6.91 4.92c1.58-.96 3.31-1.49 5.09-1.49 2.23 0 4.39.82 6.25 2.32Z" opacity="0.4"/><path d="M14.858 11.998c0 1.57-1.28 2.86-2.86 2.86-.06 0-.11 0-.17-.02l3.01-3.01c.02.06.02.11.02.17ZM21.769 2.229c-.3-.3-.79-.3-1.09 0l-18.45 18.46c-.3.3-.3.79 0 1.09a.758.758 0 0 0 1.08-.01l18.46-18.46c.31-.3.31-.78 0-1.08Z"/></symbol><symbol id="i-key" viewBox="0 0 24 24"><path d="M19.789 4.22c-2.96-2.95-7.76-2.95-10.7 0-2.07 2.05-2.69 5-1.89 7.6l-4.7 4.7c-.33.34-.56 1.01-.49 1.49l.3 2.18c.11.72.78 1.4 1.5 1.5l2.18.3c.48.07 1.15-.15 1.49-.5l.82-.82c.2-.19.2-.51 0-.71l-1.94-1.94a.754.754 0 0 1 0-1.06c.29-.29.77-.29 1.06 0l1.95 1.95c.19.19.51.19.7 0l2.12-2.11c2.59.81 5.54.18 7.6-1.87 2.95-2.95 2.95-7.76 0-10.71ZM14.499 12a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5Z" opacity="0.4"/><path d="M14.5 12a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/></symbol><symbol id="i-refresh" viewBox="0 0 24 24"><path d="M22 7.81v8.37c0 3.64-2.17 5.81-5.81 5.81H7.81C4.17 22 2 19.83 2 16.19V7.81C2 4.17 4.17 2 7.81 2h8.37C19.83 2 22 4.17 22 7.81z" opacity="0.4"/><path d="M12 18.25c-1.79 0-3.19-.89-4.14-1.77v.71c0 .41-.34.75-.75.75s-.75-.34-.75-.75v-2.75c0-.41.34-.75.75-.75h2.48c.41 0 .75.34.75.75s-.34.75-.75.75h-.9c.74.74 1.89 1.56 3.31 1.56 2.62 0 4.75-2.13 4.75-4.75 0-.41.34-.75.75-.75s.75.34.75.75c0 3.45-2.8 6.25-6.25 6.25zm-5.5-5.5c-.41 0-.75-.34-.75-.75 0-3.45 2.8-6.25 6.25-6.25 2.15 0 3.73.93 4.75 1.82v-.76c0-.41.34-.75.75-.75s.75.34.75.75V9.63a.75.75 0 01-.3.54c-.07.05-.15.09-.24.12-.07.02-.14.03-.21.03h-2.43c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h.83c-.8-.74-2.09-1.56-3.88-1.56-2.62 0-4.75 2.13-4.75 4.75-.02.4-.36.74-.77.74z"/></symbol><symbol id="i-tick" viewBox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10Z" opacity="0.4"/><path d="M10.58 15.582a.75.75 0 0 1-.53-.22l-2.83-2.83a.754.754 0 0 1 0-1.06c.29-.29.77-.29 1.06 0l2.3 2.3 5.14-5.14c.29-.29.77-.29 1.06 0 .29.29.29.77 0 1.06l-5.67 5.67a.75.75 0 0 1-.53.22Z"/></symbol><symbol id="i-activity" viewBox="0 0 24 24"><path d="M16.19 2H7.81C4.17 2 2 4.17 2 7.81v8.37C2 19.83 4.17 22 7.81 22h8.37c3.64 0 5.81-2.17 5.81-5.81V7.81C22 4.17 19.83 2 16.19 2Z" opacity="0.4"/><path d="M7.33 15.238c-.16 0-.32-.05-.46-.16a.749.749 0 0 1-.14-1.05l2.38-3.09c.29-.37.7-.61 1.17-.67.46-.06.93.07 1.3.36l1.83 1.44c.07.06.14.06.19.05.04 0 .11-.02.17-.1l2.31-2.98a.74.74 0 0 1 1.05-.13c.33.25.39.72.13 1.05l-2.31 2.98c-.29.37-.7.61-1.17.66-.47.06-.93-.07-1.3-.36l-1.83-1.44a.22.22 0 0 0-.19-.05c-.04 0-.11.02-.17.1l-2.38 3.09c-.13.2-.35.3-.58.3Z"/></symbol><symbol id="i-global" viewBox="0 0 24 24"><path d="M7.649 20.91c-.03 0-.07.02-.1.02-1.94-.96-3.52-2.55-4.49-4.49 0-.03.02-.07.02-.1 1.22.36 2.48.63 3.73.84.22 1.26.48 2.51.84 3.73ZM20.94 16.45c-.99 1.99-2.64 3.6-4.65 4.57.38-1.27.7-2.55.91-3.84 1.26-.21 2.5-.48 3.72-.84-.01.04.02.08.02.11ZM21.02 7.71c-1.26-.38-2.53-.69-3.82-.91-.21-1.29-.52-2.57-.91-3.82 2.07.99 3.74 2.66 4.73 4.73ZM7.65 3.089c-.36 1.22-.62 2.46-.83 3.72-1.29.2-2.57.52-3.84.9.97-2.01 2.58-3.66 4.57-4.65.03 0 .07.03.1.03Z" opacity="0.4"/><path d="M15.492 6.59c-2.32-.26-4.66-.26-6.98 0 .25-1.37.57-2.74 1.02-4.06.02-.08.01-.14.02-.22.79-.19 1.6-.31 2.45-.31.84 0 1.66.12 2.44.31.01.08.01.14.03.22.45 1.33.77 2.69 1.02 4.06ZM6.59 15.492c-1.38-.25-2.74-.57-4.06-1.02-.08-.02-.14-.01-.22-.02-.19-.79-.31-1.6-.31-2.45 0-.84.12-1.66.31-2.44.08-.01.14-.01.22-.03 1.33-.44 2.68-.77 4.06-1.02-.25 2.32-.25 4.66 0 6.98ZM22 12.002c0 .85-.12 1.66-.31 2.45-.08.01-.14 0-.22.02-1.33.44-2.69.77-4.06 1.02.26-2.32.26-4.66 0-6.98 1.37.25 2.74.57 4.06 1.02.08.02.14.03.22.03.19.79.31 1.6.31 2.44ZM15.492 17.41c-.25 1.38-.57 2.74-1.02 4.06-.02.08-.02.14-.03.22-.78.19-1.6.31-2.44.31-.85 0-1.66-.12-2.45-.31-.01-.08 0-.14-.02-.22a29.77 29.77 0 0 1-1.02-4.06c1.16.13 2.32.22 3.49.22 1.17 0 2.34-.09 3.49-.22ZM15.763 15.763a30.035 30.035 0 0 1-7.526 0 30.039 30.039 0 0 1 0-7.526 30.039 30.039 0 0 1 7.526 0 30.035 30.035 0 0 1 0 7.526Z"/></symbol><symbol id="i-mobile" viewBox="0 0 24 24"><path d="M16.24 2H7.76C5 2 4 3 4 5.81v12.38C4 21 5 22 7.76 22h8.47C19 22 20 21 20 18.19V5.81C20 3 19 2 16.24 2Z" opacity="0.4"/><path d="M14 6.25h-4c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h4c.41 0 .75.34.75.75s-.34.75-.75.75ZM12 19.3a1.75 1.75 0 1 0 0-3.5 1.75 1.75 0 0 0 0 3.5Z"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10Z" opacity="0.4"/><path d="M15.71 15.932a.67.67 0 0 1-.38-.11l-3.1-1.85c-.77-.46-1.34-1.47-1.34-2.36v-4.1c0-.41.34-.75.75-.75s.75.34.75.75v4.1c0 .36.3.89.61 1.07l3.1 1.85c.36.21.47.67.26 1.03a.77.77 0 0 1-.65.37Z"/></symbol><symbol id="i-battery-bolt" viewBox="0 0 24 24"><path d="M10.01 16.24c-.17 0-.35-.06-.49-.18A.756.756 0 0 1 9.44 15l1.8-2.11c.01-.03 0-.06-.02-.09-.02-.04-.06-.06-.11-.06H9.12c-.59 0-1.11-.3-1.41-.81-.29-.51-.29-1.11 0-1.62l1.71-2.26a.75.75 0 0 1 1.2.9l-1.65 2.19c.03-.04.03 0 .05.05.02.04.06.06.11.06h2.01c.59 0 1.11.3 1.41.81.29.51.29 1.11 0 1.62-.02.04-.05.08-.08.11l-1.87 2.19c-.16.18-.37.26-.59.26Z"/></symbol><symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M2 16.19V7.81C2 4.17 4.17 2 7.81 2h8.37C19.83 2 22 4.17 22 7.81v8.37c0 3.64-2.17 5.81-5.81 5.81H7.81C4.17 22 2 19.83 2 16.19z" opacity="0.4"/><path d="M11.47 18.53l-4.29-4.29a.754.754 0 010-1.06c.29-.29.77-.29 1.06 0l3.01 3.01V6c0-.41.34-.75.75-.75s.75.34.75.75v10.19l3.01-3.01c.29-.29.77-.29 1.06 0 .15.15.22.34.22.53s-.07.38-.22.53l-4.29 4.29a.75.75 0 01-1.06 0z"/></symbol><symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M22 7.81v8.37c0 3.64-2.17 5.81-5.81 5.81H7.81C4.17 22 2 19.83 2 16.19V7.81C2 4.17 4.17 2 7.81 2h8.37C19.83 2 22 4.17 22 7.81z" opacity="0.4"/><path d="M12.53 5.47l4.29 4.29c.29.29.29.77 0 1.06-.29.29-.77.29-1.06 0l-3.01-3.01V18c0 .41-.34.75-.75.75s-.75-.34-.75-.75V7.81l-3.01 3.01c-.29.29-.77.29-1.06 0a.742.742 0 01-.22-.53c0-.19.08-.39.22-.53l4.29-4.29a.75.75 0 011.06 0z"/></symbol><symbol id="i-sun" viewBox="0 0 24 24"><path d="M12 19a7 7 0 1 0 0-14 7 7 0 0 0 0 14Z" opacity="0.4"/><path d="M12 22.96c-.55 0-1-.41-1-.96v-.08c0-.55.45-1 1-1s1 .45 1 1-.45 1.04-1 1.04Zm7.14-2.82c-.26 0-.51-.1-.71-.29l-.13-.13a.996.996 0 1 1 1.41-1.41l.13.13a.996.996 0 0 1-.7 1.7Zm-14.28 0c-.26 0-.51-.1-.71-.29a.996.996 0 0 1 0-1.41l.13-.13a.996.996 0 1 1 1.41 1.41l-.13.13c-.19.19-.45.29-.7.29ZM22 13h-.08c-.55 0-1-.45-1-1s.45-1 1-1 1.04.45 1.04 1-.41 1-.96 1ZM2.08 13H2c-.55 0-1-.45-1-1s.45-1 1-1 1.04.45 1.04 1-.41 1-.96 1Zm16.93-7.01c-.26 0-.51-.1-.71-.29a.996.996 0 0 1 0-1.41l.13-.13a.996.996 0 1 1 1.41 1.41l-.13.13c-.19.19-.44.29-.7.29Zm-14.02 0c-.26 0-.51-.1-.71-.29l-.13-.14a.996.996 0 1 1 1.41-1.41l.13.13c.39.39.39 1.02 0 1.41-.19.2-.45.3-.7.3ZM12 3.04c-.55 0-1-.41-1-.96V2c0-.55.45-1 1-1s1 .45 1 1-.45 1.04-1 1.04Z"/></symbol><symbol id="i-driver" viewBox="0 0 24 24"><path d="M19.32 10.002H4.69c-1.48 0-2.68-1.21-2.68-2.68v-2.63c0-1.48 1.21-2.68 2.68-2.68h14.63c1.48 0 2.68 1.21 2.68 2.68v2.63c0 1.47-1.21 2.68-2.68 2.68ZM19.32 22.002H4.69c-1.48 0-2.68-1.21-2.68-2.68v-2.63c0-1.48 1.21-2.68 2.68-2.68h14.63c1.48 0 2.68 1.21 2.68 2.68v2.63c0 1.47-1.21 2.68-2.68 2.68Z" opacity="0.4"/><path d="M6 7.75c-.41 0-.75-.34-.75-.75V5c0-.41.34-.75.75-.75s.75.34.75.75v2c0 .41-.34.75-.75.75ZM10 7.75c-.41 0-.75-.34-.75-.75V5c0-.41.34-.75.75-.75s.75.34.75.75v2c0 .41-.34.75-.75.75ZM6 19.75c-.41 0-.75-.34-.75-.75v-2c0-.41.34-.75.75-.75s.75.34.75.75v2c0 .41-.34.75-.75.75ZM10 19.75c-.41 0-.75-.34-.75-.75v-2c0-.41.34-.75.75-.75s.75.34.75.75v2c0 .41-.34.75-.75.75ZM18 6.75h-4c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h4c.41 0 .75.34.75.75s-.34.75-.75.75ZM18 18.75h-4c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h4c.41 0 .75.34.75.75s-.34.75-.75.75Z"/></symbol><symbol id="i-setting" viewBox="0 0 24 24"><path d="M2 12.881v-1.76c0-1.04.85-1.9 1.9-1.9 1.81 0 2.55-1.28 1.64-2.85-.52-.9-.21-2.07.7-2.59l1.73-.99c.79-.47 1.81-.19 2.28.6l.11.19c.9 1.57 2.38 1.57 3.29 0l.11-.19c.47-.79 1.49-1.07 2.28-.6l1.73.99c.91.52 1.22 1.69.7 2.59-.91 1.57-.17 2.85 1.64 2.85 1.04 0 1.9.85 1.9 1.9v1.76c0 1.04-.85 1.9-1.9 1.9-1.81 0-2.55 1.28-1.64 2.85.52.91.21 2.07-.7 2.59l-1.73.99c-.79.47-1.81.19-2.28-.6l-.11-.19c-.9-1.57-2.38-1.57-3.29 0l-.11.19c-.47.79-1.49 1.07-2.28.6l-1.73-.99a1.899 1.899 0 0 1-.7-2.59c.91-1.57.17-2.85-1.64-2.85-1.05 0-1.9-.86-1.9-1.9Z" opacity="0.4"/><path d="M12 15.25a3.25 3.25 0 1 0 0-6.5 3.25 3.25 0 0 0 0 6.5Z"/></symbol>
+</svg>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="/" aria-label="Nano, inicio">
+      <svg class="mark" viewBox="0 0 1024 1024" aria-hidden="true"><rect width="1024" height="1024" rx="224" fill="#0B1222"/><rect x="8" y="8" width="1008" height="1008" rx="216" fill="none" stroke="#ffffff" stroke-opacity=".12" stroke-width="16"/><rect x="262" y="386" width="190" height="290" rx="95" fill="#1E5BFF"/><rect x="262" y="364" width="190" height="290" rx="95" fill="#5CE1FF"/><rect x="572" y="386" width="190" height="290" rx="95" fill="#1E5BFF"/><rect x="572" y="364" width="190" height="290" rx="95" fill="#5CE1FF"/></svg>
+      <span>Nano</span>
+    </a>
+    <nav class="nav" aria-label="Secciones">
+      <a href="#hud">HUD</a>
+      <a href="#funciones">Funciones</a>
+      <a href="#como-funciona">Cómo funciona</a>
+      <a href="#privacidad">Privacidad</a>
+    </nav>
+    <!-- ponytail: sin descarga pública todavía; DOWNLOAD_URL en main.js activa todos los [data-download] -->
+    <a class="btn btn-sm is-soon" href="#descargar" data-download><span data-download-text="Descargar">Muy pronto</span></a>
+  </div>
+</header>
+
+<main id="contenido">
+  <section class="hero" aria-labelledby="t-hero">
+    <div class="hero-grid wrap">
+      <div class="hero-text">
+        <p class="badge e1"><span class="dot ok" aria-hidden="true"></span>Android + Windows · sin nube</p>
+        <h1 id="t-hero"><span class="e2">Tu teléfono viejo,</span> <span class="grad e3">ahora tiene ojos.</span></h1>
+        <p class="lead e4">Nano convierte un Android que ya no usas en una mascota de escritorio que te mira, reacciona a tu cara y, cuando se aburre, te enseña cómo va tu PC.</p>
+        <div class="cta e5">
+          <div class="cta-row">
+            <a class="btn btn-lg" href="#como-funciona">Cómo funciona<span class="btn-ico" aria-hidden="true"><svg><use href="#i-arrow-down"/></svg></span></a>
+            <a class="btn-ghost" href="#descargar">Descarga: muy pronto</a>
+          </div>
+          <ul class="facts" aria-label="Características">
+            <li><svg class="i" aria-hidden="true"><use href="#i-tick"/></svg>13 expresiones</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-tick"/></svg>USB, Wi-Fi o Bluetooth</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-tick"/></svg>La cámara no sale del teléfono</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="stage e6">
+        <div class="px glow-wrap" data-speed="0.1" aria-hidden="true"><svg class="rings" viewBox="0 0 600 600"><g fill="none" stroke="#94A3B8" stroke-opacity=".12"><circle cx="300" cy="300" r="140"/><circle cx="300" cy="300" r="210"/><circle cx="300" cy="300" r="280" stroke-dasharray="2 7"/></g></svg></div>
+
+        <ul class="chips" aria-hidden="true">
+          <li class="float chip c-a"><span class="dot ok"></span>Conectado por USB</li>
+          <li class="float chip c-b"><svg class="i"><use href="#i-camera"/></svg>Te sigue con la mirada</li>
+          <li class="float chip c-c"><svg class="i"><use href="#i-cpu"/></svg>CPU 23 % · 62 °C</li>
+        </ul>
+
+        <div class="px" data-speed="0.04">
+          <figure class="device">
+            <div class="phone" aria-hidden="true">
+              <div class="screen">
+                <svg class="face face-live" viewBox="16 8 368 184">
+                  <g class="gaze"><g class="blink">
+                    <use class="x x-neutral" href="#f-neutral" width="400" height="200"/>
+                    <use class="x x-feliz" href="#f-feliz" width="400" height="200"/>
+                    <use class="x x-guino" href="#f-guino" width="400" height="200"/>
+                    <use class="x x-furioso" href="#f-furioso" width="400" height="200"/>
+                  </g></g>
+                  <use class="x x-furioso" href="#f-guns" width="400" height="200"/>
+                </svg>
+                <span class="cam"></span>
+              </div>
+            </div>
+            <div class="stand" aria-hidden="true"><span class="neck"></span><span class="foot"></span></div>
+            <figcaption class="cap">Nano en su soporte: parpadea, mira a los lados y cambia de cara (animación de ejemplo)</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="rail">
+    <section id="hud" class="sec" aria-labelledby="t-hud">
+      <div class="head wrap rv">
+        <p class="eyebrow">Modo HUD</p>
+        <h2 id="t-hud">Y cuando no te mira, vigila tu PC.</h2>
+        <p class="sub" id="flip-hint">CPU, RAM, GPU, temperaturas, red, discos y los procesos que más gastan. Nano y el HUD se turnan solos; desliza de derecha a izquierda para cambiar. Toca una tarjeta de arriba para darle la vuelta.</p>
+      </div>
+
+      <div class="wrap rv">
+        <figure class="hud-fig">
+          <div class="hud">
+            <div class="hud-top" aria-hidden="true">
+              <p class="hud-title">Nano · PC Monitor</p>
+              <p class="conn"><span class="dot ok"></span><svg class="i"><use href="#i-flash"/></svg>USB · MI-PC</p>
+            </div>
+
+            <div class="hud-row">
+              <button class="flip" type="button" aria-pressed="false" aria-describedby="flip-hint" data-flip>
+                <span class="face-c front">
+                  <span class="lbl"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>Hora</span>
+                  <span class="clock"><b data-clock>21:47</b><span class="grad" data-sec>:08</span></span>
+                  <span class="date" data-date>lunes 16 nov</span>
+                  <span class="muted-t">Uptime 6 h 12 min</span>
+                </span>
+                <span class="face-c back" aria-hidden="true">
+                  <svg class="batt-i" aria-hidden="true"><use href="#i-battery-bolt"/></svg>
+                  <span class="big-n">86<small>%</small></span>
+                  <span class="muted-t">Este teléfono · Cargando · 31 °C</span>
+                </span>
+              </button>
+
+              <button class="flip" type="button" aria-pressed="false" aria-describedby="flip-hint" data-flip>
+                <span class="face-c front center">
+                  <span class="ring"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="track" cx="60" cy="60" r="50"/><circle class="val ok" cx="60" cy="60" r="50" pathLength="100" stroke-dasharray="23 100" transform="rotate(-90 60 60)"/></svg><span class="ring-in"><svg class="i ok-t" aria-hidden="true"><use href="#i-cpu"/></svg><span class="r-l">CPU</span><b>23 %</b></span></span>
+                  <span class="muted-t">62 °C · 4,1 GHz</span>
+                </span>
+                <span class="face-c back" aria-hidden="true">
+                  <span class="lbl"><svg class="i" aria-hidden="true"><use href="#i-cpu"/></svg>CPU</span>
+                  <span class="kv"><span>Núcleos</span><b>16</b></span>
+                  <span class="kv"><span>Reloj</span><b>4,1 GHz</b></span>
+                  <span class="kv"><span>Temp</span><b>62 °C</b></span>
+                  <span class="kv"><span>game.exe</span><b class="v-t">14,2 %</b></span>
+                </span>
+              </button>
+
+              <button class="flip" type="button" aria-pressed="false" aria-describedby="flip-hint" data-flip>
+                <span class="face-c front center">
+                  <span class="ring"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="track" cx="60" cy="60" r="50"/><circle class="val warn" cx="60" cy="60" r="50" pathLength="100" stroke-dasharray="72 100" transform="rotate(-90 60 60)"/></svg><span class="ring-in"><svg class="i warn-t" aria-hidden="true"><use href="#i-ram"/></svg><span class="r-l">RAM</span><b>72 %</b></span></span>
+                  <span class="muted-t">11,5 / 16 GB</span>
+                </span>
+                <span class="face-c back" aria-hidden="true">
+                  <svg class="batt-i" aria-hidden="true"><use href="#i-battery-bolt"/></svg>
+                  <span class="big-n">100<small>%</small></span>
+                  <span class="muted-t">Portátil · Enchufado</span>
+                </span>
+              </button>
+
+              <button class="flip" type="button" aria-pressed="false" aria-describedby="flip-hint" data-flip>
+                <span class="face-c front center">
+                  <span class="ring"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="track" cx="60" cy="60" r="50"/><circle class="val ok" cx="60" cy="60" r="50" pathLength="100" stroke-dasharray="41 100" transform="rotate(-90 60 60)"/></svg><span class="ring-in"><svg class="i ok-t" aria-hidden="true"><use href="#i-monitor"/></svg><span class="r-l">GPU</span><b>41 %</b></span></span>
+                  <span class="muted-t">68 °C · VRAM 3,2 / 8 GB</span>
+                </span>
+                <span class="face-c back" aria-hidden="true">
+                  <span class="lbl"><svg class="i" aria-hidden="true"><use href="#i-monitor"/></svg>GPU</span>
+                  <span class="kv"><span>VRAM</span><b>3,2 / 8 GB</b></span>
+                  <span class="bar"><span class="bar-f ok w-40"></span></span>
+                  <span class="kv"><span>Temp</span><b class="v-t">68 °C</b></span>
+                  <span class="kv"><span>Carga</span><b class="v-t">41 %</b></span>
+                </span>
+              </button>
+            </div>
+
+            <div class="hud-row2">
+              <div class="panel">
+                <p class="lbl"><svg class="i" aria-hidden="true"><use href="#i-activity"/></svg>Top procesos CPU</p>
+                <ul class="procs">
+                  <li><span>game.exe</span><b class="v-t">14,2 %</b></li>
+                  <li><span>obs64.exe</span><b class="v-t">6,8 %</b></li>
+                  <li><span>chrome.exe</span><b class="v-t">3,1 %</b></li>
+                  <li><span>discord.exe</span><b class="fresh-t">1,9 %</b></li>
+                  <li><span>explorer.exe</span><b class="fresh-t">0,4 %</b></li>
+                </ul>
+              </div>
+              <div class="panel">
+                <p class="lbl"><svg class="i" aria-hidden="true"><use href="#i-global"/></svg>Red y almacenamiento</p>
+                <div class="net">
+                  <p class="tile"><span class="t-l"><svg class="i" aria-hidden="true"><use href="#i-arrow-down"/></svg>Bajada</span><b class="fresh-t">12,4 MB/s</b></p>
+                  <p class="tile"><span class="t-l"><svg class="i" aria-hidden="true"><use href="#i-arrow-up"/></svg>Subida</span><b class="blue-t">1,8 MB/s</b></p>
+                </div>
+                <div class="disk"><p class="kv"><span><svg class="i" aria-hidden="true"><use href="#i-driver"/></svg>C:</span><span class="soft-t">412 / 931 GB (44 %)</span></p><span class="bar"><span class="bar-f ok w-44"></span></span></div>
+                <div class="disk"><p class="kv"><span><svg class="i" aria-hidden="true"><use href="#i-driver"/></svg>D:</span><span class="soft-t">1,6 / 1,8 TB (89 %)</span></p><span class="bar"><span class="bar-f hot w-89"></span></span></div>
+              </div>
+            </div>
+          </div>
+          <figcaption class="cap">Réplica del HUD con datos de ejemplo. La hora es la de tu dispositivo.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="funciones" class="sec" aria-labelledby="t-features">
+      <div class="head wrap rv">
+        <p class="eyebrow">Qué hace</p>
+        <h2 id="t-features">Un compañero con carácter propio.</h2>
+      </div>
+      <ul class="bento" data-stagger>
+        <li class="cell span2 gallery-cell">
+          <div class="vis dots">
+            <ul class="faces" aria-label="Algunas expresiones de Nano">
+              <li><svg class="face" viewBox="16 8 368 184" role="img" aria-label="Cara neutral"><use href="#f-neutral" width="400" height="200"/></svg><span>Neutral</span></li>
+              <li><svg class="face" viewBox="16 8 368 184" role="img" aria-label="Cara feliz"><use href="#f-feliz" width="400" height="200"/></svg><span>Feliz</span></li>
+              <li><svg class="face" viewBox="16 8 368 184" role="img" aria-label="Cara de enojo"><use href="#f-enojado" width="400" height="200"/></svg><span>Enojado</span></li>
+              <li><svg class="face" viewBox="16 8 368 184" role="img" aria-label="Cara dormida"><use href="#f-dormido" width="400" height="200"/></svg><span>Dormido</span></li>
+              <li><svg class="face" viewBox="16 8 368 184" role="img" aria-label="Cara guiñando un ojo"><use href="#f-guino" width="400" height="200"/></svg><span>Guiño</span></li>
+              <li class="mad"><svg class="face" viewBox="16 8 368 184" role="img" aria-label="Cara furiosa con dos pistolas de dibujos animados"><use href="#f-furioso" width="400" height="200"/><use href="#f-guns" width="400" height="200"/></svg><span>FURIOSO</span></li>
+            </ul>
+          </div>
+          <div class="txt">
+            <h3><svg class="i" aria-hidden="true"><use href="#i-emoji-happy"/></svg>13 expresiones</h3>
+            <p>Neutral, feliz, curioso, sorprendido, aburrido, dormido… y FURIOSO, con dos pistolas de dibujos animados cuando le colmas la paciencia. Los ojos llevan la emoción; la boca solo sale cuando se ríe. Desliza de izquierda a derecha para cambiarle la cara.</p>
+          </div>
+        </li>
+        <li class="cell">
+          <div class="vis dots" aria-hidden="true">
+            <div class="track-demo">
+              <span class="reticle"><svg class="face"><use href="#f-feliz" width="100%" height="100%"/></svg></span>
+              <span class="float pill"><span class="dot ok"></span>Sonrisa detectada</span>
+            </div>
+          </div>
+          <div class="txt">
+            <h3><svg class="i" aria-hidden="true"><use href="#i-camera"/></svg>Reacciona a tu cara</h3>
+            <p>Con la cámara frontal: si sonríes, sonríe; si frunces el ceño, se enoja; y te sigue con la mirada. Las imágenes se procesan en el teléfono y se descartan al momento: nunca se guardan ni se envían.</p>
+          </div>
+        </li>
+        <li class="cell">
+          <div class="vis dots" aria-hidden="true">
+            <div class="taps">
+              <span class="float tap"><b>Toque</b>cosquillas</span>
+              <span class="float tap"><b>Mantener</b>caricia</span>
+              <span class="float tap"><b>5 toques</b>se harta</span>
+            </div>
+          </div>
+          <div class="txt">
+            <h3><svg class="i" aria-hidden="true"><use href="#i-mobile"/></svg>Le gusta que lo toques</h3>
+            <p>Un toque le hace cosquillas y mira hacia tu dedo. Si lo mantienes, es una caricia y se enamora. Cinco toques seguidos lo hartan; repítelo y saca las pistolas.</p>
+          </div>
+        </li>
+        <li class="cell">
+          <div class="vis dots" aria-hidden="true">
+            <div class="hot">
+              <span class="scr"><svg class="face face-sm"><use href="#f-estresado" width="100%" height="100%"/></svg></span>
+              <span class="float pill"><span class="dot hot-d"></span>GPU 88 °C</span>
+            </div>
+          </div>
+          <div class="txt">
+            <h3><svg class="i" aria-hidden="true"><use href="#i-cpu"/></svg>Siente a tu PC</h3>
+            <p>Suda si la CPU o la GPU pasan de 85 °C, se pone nervioso con la CPU al tope y se entristece si pierde la conexión. Cuando vuelve, se alegra.</p>
+          </div>
+        </li>
+        <li class="cell">
+          <div class="vis dots" aria-hidden="true">
+            <div class="links">
+              <span class="float link-c"><svg class="i"><use href="#i-flash"/></svg>USB</span>
+              <span class="float link-c"><svg class="i"><use href="#i-wifi"/></svg>Wi-Fi</span>
+              <span class="float link-c"><svg class="i"><use href="#i-bluetooth"/></svg>Bluetooth</span>
+            </div>
+          </div>
+          <div class="txt">
+            <h3><svg class="i" aria-hidden="true"><use href="#i-refresh"/></svg>Tres formas de conectarse</h3>
+            <p>Por cable USB, por tu Wi-Fi o por Bluetooth. Nano encuentra tu PC solo y, si se corta, sigue intentándolo.</p>
+          </div>
+        </li>
+        <li class="cell span2">
+          <div class="vis dots" aria-hidden="true">
+            <div class="float agent">
+              <p class="agent-h"><svg class="mark-s" viewBox="0 0 1024 1024"><rect width="1024" height="1024" rx="224" fill="#0B1222"/><rect x="262" y="364" width="190" height="290" rx="95" fill="#5CE1FF"/><rect x="572" y="364" width="190" height="290" rx="95" fill="#5CE1FF"/></svg>Nano · Agente<span class="pill-s"><span class="dot ok"></span>1 cliente</span></p>
+              <p class="agent-l">Código de emparejamiento</p>
+              <p class="otp"><span>4</span><span>8</span><span>1</span><i></i><span>2</span><span>0</span><span>7</span></p>
+            </div>
+          </div>
+          <div class="txt">
+            <h3><svg class="i" aria-hidden="true"><use href="#i-monitor"/></svg>Un agente pequeño en Windows</h3>
+            <p>Vive en la bandeja del sistema con la cara de Nano. Ábrelo y verás los teléfonos conectados, la vía de cada uno, un mini HUD y el código de 6 dígitos para emparejar. Solo lee métricas: no cambia nada en tu PC.</p>
+          </div>
+        </li>
+        <li class="cell">
+          <div class="vis dots night" aria-hidden="true">
+            <svg class="face face-sm dim"><use href="#f-dormido" width="100%" height="100%"/></svg>
+          </div>
+          <div class="txt">
+            <h3><svg class="i" aria-hidden="true"><use href="#i-sun"/></svg>Arranca solo y duerme de noche</h3>
+            <p>Se abre al encender el teléfono, como un aparato más. Si apagas el PC, a los 10 minutos se duerme y baja el brillo; a los 30 deja que la pantalla se apague.</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section id="como-funciona" class="sec ink" aria-labelledby="t-steps">
+      <div class="head wrap rv">
+        <p class="eyebrow">Cómo funciona</p>
+        <h2 id="t-steps">En cuatro pasos.</h2>
+      </div>
+      <ol class="steps wrap" data-stagger>
+        <li><h3>Instala el agente en Windows</h3><p>Aparece un icono con los ojos de Nano junto al reloj. Ábrelo para ver tu código.</p></li>
+        <li><h3>Abre Nano en el teléfono</h3><p>El asistente te pide la cámara (es opcional) y permiso para arrancar solo al encenderse.</p></li>
+        <li><h3>Escribe el código de 6 dígitos</h3><p>Así solo tu teléfono puede leer tu PC. Nano lo encuentra por USB, Wi-Fi o Bluetooth.</p></li>
+        <li><h3>Ponlo en su soporte</h3><p>Junto al monitor, en horizontal y enchufado. Desliza de derecha a izquierda para pasar de Nano al HUD.</p></li>
+      </ol>
+    </section>
+
+    <div id="privacidad" class="sec">
+      <div class="split wrap">
+        <section class="rv" aria-labelledby="t-priv">
+          <p class="eyebrow">Privacidad</p>
+          <h2 id="t-priv">Lo que pasa en tu escritorio, se queda ahí.</h2>
+          <ul class="card list">
+            <li><h3>La cámara no sale del teléfono</h3><p>Cada imagen se analiza en memoria y se descarta. Solo está encendida mientras ves a Nano; en el HUD y con la pantalla apagada, no.</p></li>
+            <li><h3>Un agente de solo lectura</h3><p>Lee uso, temperaturas, red, discos y procesos. No escribe ni cambia nada en Windows.</p></li>
+            <li><h3>Emparejado con código</h3><p>Sin el código de 6 dígitos de tu PC, ningún teléfono puede conectarse.</p></li>
+            <li><h3>Sin nube ni cuentas</h3><p>El teléfono y el PC hablan directamente, por cable, por tu red o por Bluetooth.</p></li>
+          </ul>
+        </section>
+        <section class="rv" aria-labelledby="t-req">
+          <p class="eyebrow">Qué necesitas</p>
+          <h2 id="t-req">Lo que ya tienes.</h2>
+          <ul class="card list req">
+            <li><svg class="i" aria-hidden="true"><use href="#i-mobile"/></svg>Un teléfono con Android 8.0 o superior</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-monitor"/></svg>Un PC con Windows</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-flash"/></svg>Un cable USB, tu Wi-Fi o Bluetooth</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-camera"/></svg>Cámara frontal, si quieres que te vea (opcional)</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-setting"/></svg>Un soporte para dejarlo en horizontal</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+
+    <section class="sec sec-tight" aria-labelledby="t-soon">
+      <div class="wrap">
+        <div class="card soon rv">
+          <div>
+            <p class="eyebrow">Próximamente · v2</p>
+            <h2 id="t-soon">«Oye Nano».</h2>
+            <p>Un asistente de voz con Gemini: le hablas desde el escritorio y te contesta con su cara. Cuando llegue, te contaremos aquí qué escucha y qué se envía.</p>
+          </div>
+          <div class="wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="descargar" class="final" aria-labelledby="t-final">
+      <svg class="final-eyes" viewBox="0 0 400 200" aria-hidden="true"><use href="#f-neutral" width="400" height="200"/></svg>
+      <div class="final-in wrap rv">
+        <h2 id="t-final">Nano está casi listo.</h2>
+        <p>La app para Android y el agente para Windows aún no tienen descarga pública. Cuando la tengan, este botón se activa.</p>
+        <a class="btn btn-lg btn-light is-soon" data-download aria-disabled="true" role="link"><span data-download-text="Descargar Nano">Muy pronto</span><span class="btn-ico" aria-hidden="true"><svg><use href="#i-clock"/></svg></span></a>
+        <p class="meta">Android 8.0+ · Windows · USB, Wi-Fi o Bluetooth</p>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="foot-in wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="brand" href="/" aria-label="Nano, inicio">
+          <svg class="mark" viewBox="0 0 1024 1024" aria-hidden="true"><rect width="1024" height="1024" rx="224" fill="#0B1222"/><rect x="8" y="8" width="1008" height="1008" rx="216" fill="none" stroke="#ffffff" stroke-opacity=".12" stroke-width="16"/><rect x="262" y="386" width="190" height="290" rx="95" fill="#1E5BFF"/><rect x="262" y="364" width="190" height="290" rx="95" fill="#5CE1FF"/><rect x="572" y="386" width="190" height="290" rx="95" fill="#1E5BFF"/><rect x="572" y="364" width="190" height="290" rx="95" fill="#5CE1FF"/></svg>
+          <span>Nano</span>
+        </a>
+        <p class="foot-tag">Tu teléfono viejo, ahora con ojos.</p>
+        <p class="foot-by">Hecho por <a href="https://angellm.dev">Angel Labrada</a></p>
+      </div>
+      <nav class="foot-nav" aria-label="Pie de página">
+        <div class="foot-col">
+          <p class="foot-h">Nano</p>
+          <ul>
+            <li><a href="#descargar" data-download><span data-download-text="Descargar">Descarga: muy pronto</span></a></li>
+            <li><a href="#funciones">Funciones</a></li>
+            <li><a href="#privacidad">Privacidad</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <p class="foot-h">Más</p>
+          <ul>
+            <li><a href="https://angellm.dev/contact">Contacto</a></li>
+            <li><a href="https://iconsax-react.pages.dev/">Iconos: Iconsax (MIT)</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="foot-bottom">
+      <p>© 2026 Nano</p>
+      <p>Para Android y Windows</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
