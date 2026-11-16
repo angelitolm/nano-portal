@@ -1,20 +1,3 @@
-// ===== CONFIG =====================================================================
-// Todavía no hay descarga pública de la app ni del agente. Cuando la haya, pon aquí la URL
-// (y la misma en los href con data-download de index.html, como respaldo sin JS).
-var DOWNLOAD_URL = null;
-// ==================================================================================
-
-if (DOWNLOAD_URL) {
-  document.querySelectorAll('[data-download]').forEach(function (a) {
-    a.href = DOWNLOAD_URL;
-    a.classList.remove('is-soon');
-    a.removeAttribute('aria-disabled');
-    a.removeAttribute('role');
-    var t = a.querySelector('[data-download-text]');
-    if (t) t.textContent = t.dataset.downloadText;
-  });
-}
-
 // ===== HUD: reloj en vivo (la hora del visitante; el resto son datos de ejemplo) ======
 var clock = document.querySelector('[data-clock]');
 var sec = document.querySelector('[data-sec]');
