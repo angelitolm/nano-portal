@@ -469,7 +469,8 @@ h1 span { display: block; }
 .final h2 { font-size: clamp(2.25rem, 1.3rem + 4vw, 4rem); line-height: 1.02; letter-spacing: -.045em; max-width: 14ch; }
 .final p { max-width: 32em; font-size: 1.0625rem; color: #DCE3F0; }
 .final .btn { margin-top: var(--s3); }
-.final .dl-row { display: flex; flex-wrap: wrap; gap: var(--s3); justify-content: center; }
+.final .dl-row { display: flex; flex-wrap: wrap; gap: var(--s4); justify-content: center; margin-top: var(--s3); }
+.final .dl-row .btn { margin-top: 0; }
 .final .meta { color: #DCE3F0; }
 
 /* Pie */
